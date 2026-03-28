@@ -8,7 +8,7 @@ const app = express();
 // 1. Middleware (Secured for Production)
 app.use(cors({
   // Replace the second link with your live Vercel frontend URL later
-  origin: ['http://localhost:5173', 'https://your-portfolio-url.vercel.app'], 
+  origin: ['http://localhost:5173', 'https://cordova-portfolio.vercel.app'], 
   methods: ['POST', 'GET'],
   credentials: true
 }));
