@@ -30,7 +30,7 @@ function App() {
             {/* Logo */}
             <Link to="/" className="flex items-center gap-2 text-[#d4af37] font-bold tracking-tighter text-xl gold-glow">
               <Cpu size={20} />
-              <span> Engr. Joshua C. Cordova CPE</span>
+              <span> Joshua C. Cordova CPE</span>
             </Link>
 
             {/* Desktop Links (Hidden on Mobile) */}
