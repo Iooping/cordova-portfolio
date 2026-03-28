@@ -8,6 +8,7 @@ export default function Contact() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setStatus('sending');
+    
     const formData = {
       name: e.target.name.value,
       email: e.target.email.value,
@@ -16,7 +17,11 @@ export default function Contact() {
     };
 
     try {
-      const response = await fetch('http://localhost:5000/api/contact', {
+      // 1. Define the dynamic URL (Uses Vercel env variable or localhost)
+      const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:5000';
+
+      // 2. Corrected Fetch call
+      const response = await fetch(`${API_URL}/api/contact`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(formData),
@@ -25,6 +30,8 @@ export default function Contact() {
       if (response.ok) {
         setStatus('success');
         e.target.reset();
+        // Optional: Reset to idle after 5 seconds
+        setTimeout(() => setStatus('idle'), 5000);
       } else {
         setStatus('error');
       }
@@ -58,7 +65,9 @@ export default function Contact() {
 
         {/* Contact Form */}
         <motion.form 
-          initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.2, duration: 0.5 }}
+          initial={{ opacity: 0, y: 10 }} 
+          animate={{ opacity: 1, y: 0 }} 
+          transition={{ delay: 0.2, duration: 0.5 }}
           onSubmit={handleSubmit} 
           className="glass p-8 md:p-10 rounded-[2.5rem] border-white/10 shadow-2xl space-y-5"
         >
@@ -73,7 +82,9 @@ export default function Contact() {
             type="submit" 
             disabled={status === 'sending'}
             className={`w-full py-5 rounded-2xl font-black uppercase tracking-widest text-sm flex items-center justify-center gap-3 transition-all mt-4 ${
-              status === 'success' ? 'bg-green-500 text-black' : 'bg-[#d4af37] text-black hover:bg-white hover:shadow-[0_0_20px_rgba(212,175,55,0.4)]'
+              status === 'success' ? 'bg-green-500 text-black' : 
+              status === 'error' ? 'bg-red-600 text-white' :
+              'bg-[#d4af37] text-black hover:bg-white hover:shadow-[0_0_20px_rgba(212,175,55,0.4)]'
             }`}
           >
             {status === 'idle' && <><Send size={18} /> Transmit Signal</>}
@@ -83,10 +94,11 @@ export default function Contact() {
           </button>
         </motion.form>
 
-
         {/* Action Buttons (Socials & Resume) */}
         <motion.div 
-          initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5 }}
+          initial={{ opacity: 0, y: 10 }} 
+          animate={{ opacity: 1, y: 0 }} 
+          transition={{ duration: 0.5 }}
           className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-8 mt-12"
         >
           {/* LinkedIn */}
@@ -109,7 +121,6 @@ export default function Contact() {
             <FileText size={18} /> Check Resume
           </a>
         </motion.div>
-
       </div>
     </div>
   );
