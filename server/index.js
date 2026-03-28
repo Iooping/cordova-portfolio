@@ -5,11 +5,16 @@ require('dotenv').config();
 
 const app = express();
 
-// 1. Middleware (Must come before routes)
-app.use(cors());
+// 1. Middleware (Secured for Production)
+app.use(cors({
+  // Replace the second link with your live Vercel frontend URL later
+  origin: ['http://localhost:5173', 'https://your-portfolio-url.vercel.app'], 
+  methods: ['POST', 'GET'],
+  credentials: true
+}));
 app.use(express.json());
 
-// 2. The Specific Route
+// 2. The Specific Route (Contact Form)
 app.post('/api/contact', async (req, res) => {
   const { name, email, subject, message } = req.body;
   console.log("📥 Received Signal from:", name);
@@ -41,11 +46,17 @@ app.post('/api/contact', async (req, res) => {
 
 // 3. Fallback Route (To test if server is alive)
 app.get('/', (req, res) => {
-  res.send("Backend is Online and Listening.");
+  res.send("Backend is Online and Ready.");
 });
 
-// 4. Start Server
-const PORT = 5000;
-app.listen(PORT, () => {
-  console.log(`🚀 System Online: http://localhost:${PORT}`);
-});
+// 4. Start Server (Local) or Export (Vercel Serverless)
+// Vercel automatically sets NODE_ENV to "production" when deployed.
+if (process.env.NODE_ENV !== 'production') {
+  const PORT = process.env.PORT || 5000;
+  app.listen(PORT, () => {
+    console.log(`🚀 System Online on port: ${PORT}`);
+  });
+}
+
+// Export the Express API so Vercel can run it as a serverless function
+module.exports = app;
