@@ -46,10 +46,30 @@ export default function About() {
                 I am a multidisciplinary Computer Engineering student specializing in workflow automation, workforce operations, and data-driven process improvement.
               </p>
               <p>
-                My background is unconventional. Having spent over 5 years in the BPO industry scaling from Tier 1 Technical Support to managing real-time data for 2,000+ employees, I understand how enterprise systems function at scale.
+                My journey is a bit unconventional. I started working in the BPO industry back in Grade 12, and over the past five years, I have scaled from Tier 1 Technical Support to managing real-time data and workforce analytics for 2,000+ employees globally. Because of this dual path as a working student, I bring a unique perspective to my engineering projects: I do not just know how to build technology; I understand how enterprise systems function at scale and how real people use them.
               </p>
               <p>
-                Today, I bridge the gap between high-level hardware (AIoT, ESP32) and software (MERN, Python, GenAI) to build automated systems for marketing funnels, CRM management, and agentic workflows that drive practical business outcomes.
+                Today, I bridge the gap between high-level hardware (AIoT, ESP32) and software (MERN, Python, GenAI) to build automated systems, marketing infrastructures, and agentic workflows that drive practical business outcomes.
+              </p>
+              <p>
+                What I Do Now: Digital Marketing & Operations Architecture
+              </p>
+              <p>
+                Currently: Digital Marketing & Operations Support Specialist at STAR Network Foundations (via Doneverse)
+                </p>  
+               <p>
+                 I serve as the operational backbone for the Reaching & Rooted team, building the infrastructure that allows creative strategies to scale. My mandate is to increase team capacity through strict execution and systems management:
+                 • Workflow Architecture: I act as the guardian of our "System of Record" (Monday.com), ensuring all workflows are visible, trackable, and compliant.
+                 • Marketing Operations: I support traffic and conversion strategies by handling the technical build of low-ticket funnels, order forms, and upsell page drafts.
+                 • SOP & Content Development: I translate complex processes into standardized Standard Operating Procedures (SOPs) and draft "first-pass" copy for lead magnets and email nurture sequences to streamline editorial workflows.
+                </p>
+              <p> 
+                Where I Started: Analytics, Risk & Workforce Management
+              </p>
+              <p>
+                Prior to stepping into operations architecture, I built a resilient foundation in high-stakes Telco and Fintech environments:
+                •Real-Time Analytics: I supported global operations across the Philippines and El Salvador, ensuring service-level adherence for 2,000+ employees across 17 lines of business through real-time reporting.
+                •Risk Operations: I specialized in Risk & Threat Management for VISA/STAR chargebacks, honing my ability to spot anomalies in massive datasets and adhere to strict compliance frameworks.
               </p>
             </div>
             
