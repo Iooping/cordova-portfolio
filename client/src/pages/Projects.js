@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Bot, Shield, Zap, ExternalLink, Code2, Activity, X } from 'lucide-react';
+import { Bot, Shield, Zap, ExternalLink, Code2, Activity, X, MonitorCloud } from 'lucide-react';
 
 export default function Projects() {
   const [selectedProject, setSelectedProject] = useState(null);
@@ -20,7 +20,9 @@ export default function Projects() {
       ],
       features: ["GPIO Alert Logic", "Frame-Differencing", "Automated Night Protocol"],
       tech: ["ESP32-CAM", "C++", "Sensors", "IoT"],
-      link: "#"
+      link: "#",
+      showDeploy: false, 
+      showSource: true
     },
     {
       id: "SYS-02",
@@ -36,7 +38,9 @@ export default function Projects() {
       ],
       features: ["RAG Architecture", "Prompt Modularity", "Multimodal Hooks"],
       tech: ["LangChain", "Gemini API", "Python", "Node.js"],
-      link: "#"
+      link: "#",
+      showDeploy: true, 
+      showSource: false
     },
     {
       id: "SYS-03",
@@ -52,8 +56,58 @@ export default function Projects() {
       ],
       features: ["Dynamic Illumination", "Sensor Integration", "Hardware Design"],
       tech: ["Arduino", "Power Systems", "C++", "Relays"],
+      github: "https://github.com/IreplyCHMSU-Alijis-2026/CMS",
+      showSource: true
+    },
+    {
+     id: "SYS-05",
+      title: "Remote Digital Signage & PA Controller",
+     category: "Enterprise AIoT / MERN",
+     icon: <MonitorCloud className="text-orange-400" size={28} />, 
+      status: "Beta Deployment",
+      description: "A centralized media orchestrator designed to manage remote Raspberry Pi endpoints for synchronized audio-visual content.",
+     extendedDetails: [
+      "Developed under industry mentorship at iReply, this system functions as a Centralized Media Orchestrator. It allows users to manage remote Raspberry Pi 'endpoints' via a web-based CMS to deploy synchronized media loops or emergency audio overrides.",
+     "The architecture consists of a React-based CMS for asset orchestration, a Node.js server acting as the 'Source of Truth' for state management, and a Raspberry Pi configured as an event-driven edge media player.",
+     "A key engineering challenge was the implementation of real-time event-driven interrupts, allowing the system to break a visual loop for emergency public address (PA) announcements or scheduled advertisements dynamically."
+     ],
+      features: ["Event-Driven Interrupts", "Asset Orchestration", "Real-time State Management"],
+     tech: ["MongoDB", "Express.js", "React", "Node.js", "Raspberry Pi", "WebSockets"],
+     github: "https://github.com/IreplyCHMSU-Alijis-2026/CMS",
+      showSource: true
+    },
+    {
+      id: "SYS-04",
+      title: "Placeholder Project",
+      category: "Placeholder Project",
+      icon: <Bot className="text-blue-400" size={28} />,
+      status: "Placeholder Project",
+      description: "Placeholder Project Placeholder Project Placeholder Project Placeholder Project Placeholder Project",
+      extendedDetails: [
+        "Placeholder Project Placeholder Project Placeholder Project Placeholder Project Placeholder Project Placeholder Project Placeholder Project Placeholder Project.",
+        "Placeholder Project Placeholder Project Placeholder Project Placeholder Project Placeholder Project Placeholder Project Placeholder Project Placeholder Project.",
+        "Placeholder Project Placeholder Project Placeholder Project Placeholder Project Placeholder Project Placeholder Project Placeholder Project Placeholder Project."
+      ],
+      features: ["Placeholder Project", "Placeholder Project", "Placeholder Project"],
+      tech: ["Placeholder Project"],
       link: "#"
-    }
+    },
+    {
+      id: "SYS-04",
+      title: "Placeholder Project",
+      category: "Placeholder Project",
+      icon: <Bot className="text-blue-400" size={28} />,
+      status: "Placeholder Project",
+      description: "Placeholder Project Placeholder Project Placeholder Project Placeholder Project Placeholder Project",
+      extendedDetails: [
+        "Placeholder Project Placeholder Project Placeholder Project Placeholder Project Placeholder Project Placeholder Project Placeholder Project Placeholder Project.",
+        "Placeholder Project Placeholder Project Placeholder Project Placeholder Project Placeholder Project Placeholder Project Placeholder Project Placeholder Project.",
+        "Placeholder Project Placeholder Project Placeholder Project Placeholder Project Placeholder Project Placeholder Project Placeholder Project Placeholder Project."
+      ],
+      features: ["Placeholder Project", "Placeholder Project", "Placeholder Project"],
+      tech: ["Placeholder Project"],
+      link: "#"
+    },
   ];
 
   // Grid Animations
@@ -214,19 +268,26 @@ export default function Projects() {
               </div>
 
               {/* Action Buttons */}
-              <div className="flex flex-wrap gap-4 pt-8 border-t border-white/10">
-                <a href={selectedProject.link} target="_blank" rel="noopener noreferrer" className="flex-1 md:flex-none flex items-center justify-center gap-2 bg-[#d4af37] text-black hover:bg-white text-xs font-black uppercase tracking-widest px-8 py-4 rounded-xl transition-all">
-                  <ExternalLink size={16} /> Deploy Module
-                </a>
-                <a href={selectedProject.link} target="_blank" rel="noopener noreferrer" className="flex-1 md:flex-none flex items-center justify-center gap-2 bg-white/5 hover:bg-white/10 border border-white/10 text-white text-xs font-black uppercase tracking-widest px-8 py-4 rounded-xl transition-all">
-                  {/* Inline GitHub SVG */}
-                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                    <path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"></path>
-                    <path d="M9 18c-4.51 2-5-2-7-2"></path>
-                  </svg>
-                  View Source
-                </a>
-              </div>
+<div className="flex flex-wrap gap-4 pt-8 border-t border-white/10">
+  
+  {/* Conditional Deploy Button */}
+  {selectedProject.showDeploy && (
+    <a href={selectedProject.link} target="_blank" rel="noopener noreferrer" className="flex-1 md:flex-none flex items-center justify-center gap-2 bg-[#d4af37] text-black hover:bg-white text-xs font-black uppercase tracking-widest px-8 py-4 rounded-xl transition-all">
+      <ExternalLink size={16} /> Deploy Module
+    </a>
+  )}
+
+  {/* Conditional View Source Button */}
+  {selectedProject.showSource && (
+    <a href={selectedProject.github || "#"} target="_blank" rel="noopener noreferrer" className="flex-1 md:flex-none flex items-center justify-center gap-2 bg-white/5 hover:bg-white/10 border border-white/10 text-white text-xs font-black uppercase tracking-widest px-8 py-4 rounded-xl transition-all">
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"></path>
+        <path d="M9 18c-4.51 2-5-2-7-2"></path>
+      </svg>
+      View Source
+    </a>
+  )}
+</div>
             </motion.div>
           </div>
         )}
