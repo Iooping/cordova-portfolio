@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Terminal, Cpu, Code, ArrowRight, Sparkles } from 'lucide-react';
+import { Terminal, Cpu, Code, Layers, ArrowRight, Sparkles } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 export default function Home() {
@@ -22,12 +22,18 @@ export default function Home() {
         <div className="absolute top-0 right-0 w-32 h-32 bg-white/5 blur-3xl rounded-full" />
 
         {/* System Header */}
-        <div className="flex items-center gap-3 mb-8">
-          <div className="h-[2px] w-16 bg-gradient-to-r from-[#d4af37] to-transparent" />
-          <span className="text-[#d4af37] font-mono text-[10px] md:text-xs tracking-[0.5em] uppercase font-black italic">
-            Uplink Established // v2.4.6
+        <div className="flex flex-wrap items-center justify-between gap-4 mb-8">
+          <div className="flex items-center gap-3">
+            <div className="h-[2px] w-16 bg-gradient-to-r from-[#d4af37] to-transparent" />
+            <span className="text-[#d4af37] font-mono text-[10px] md:text-xs tracking-[0.5em] uppercase font-black italic">
+              Uplink Established // v2.5.0
+            </span>
+            <Sparkles size={14} className="text-[#d4af37] animate-bounce" />
+          </div>
+
+          <span className="text-[10px] font-mono uppercase tracking-[0.25em] text-[#d4af37] bg-[#d4af37]/10 px-4 py-1.5 rounded-full border border-[#d4af37]/20">
+            Node: Kaohsiung, Taiwan
           </span>
-          <Sparkles size={14} className="text-[#d4af37] animate-bounce" />
         </div>
 
         {/* Hero Title */}
@@ -40,11 +46,12 @@ export default function Home() {
 
         {/* Description with Vertical Accent */}
         <div className="flex flex-col md:flex-row gap-8 items-start mb-12">
-            <p className="max-w-2xl text-gray-300 text-lg md:text-2xl leading-relaxed border-l-4 border-[#d4af37]/40 pl-8">
-            I am <span className="text-white font-bold underline decoration-[#d4af37]/40 underline-offset-4">Joshua Cordova</span>, 
-            an engineer bridging the gap between <span className="text-gold-primary">AIoT Hardware</span> and 
+          <p className="max-w-3xl text-gray-300 text-lg md:text-2xl leading-relaxed border-l-4 border-[#d4af37]/40 pl-8">
+            I am <span className="text-white font-bold underline decoration-[#d4af37]/40 underline-offset-4">Joshua Cordova 柯亞哲</span>, 
+            a Computer Engineer currently advancing my journey in <span className="text-gold-primary">Equipment Engineering</span> in Taiwan—bridging 
+            <span className="text-gold-primary"> Semiconductor & AIoT Hardware</span> with 
             <span className="text-gold-primary"> Enterprise Automation</span>.
-            </p>
+          </p>
         </div>
 
         {/* Action Buttons */}
@@ -58,20 +65,30 @@ export default function Home() {
         </div>
 
         {/* 🟢 Layer 3: System Specs Footer (Grid) */}
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 pt-12 border-t border-white/10">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 pt-12 border-t border-white/10">
           <div className="flex items-center gap-5 group">
             <div className="p-3 bg-white/5 rounded-xl group-hover:bg-[#d4af37]/20 transition-colors">
-                <Cpu className="text-[#d4af37]" size={28} />
+              <Layers className="text-[#d4af37]" size={28} />
+            </div>
+            <div>
+              <h4 className="text-[10px] font-mono uppercase text-gray-500 tracking-[0.2em] mb-1">Active Track</h4>
+              <p className="text-sm font-black text-white/90">EQUIPMENT ENG. // TW</p>
+            </div>
+          </div>
+
+          <div className="flex items-center gap-5 group">
+            <div className="p-3 bg-white/5 rounded-xl group-hover:bg-[#d4af37]/20 transition-colors">
+              <Cpu className="text-[#d4af37]" size={28} />
             </div>
             <div>
               <h4 className="text-[10px] font-mono uppercase text-gray-500 tracking-[0.2em] mb-1">Core Architecture</h4>
-              <p className="text-sm font-black text-white/90">AIoT & ROBOTICS</p>
+              <p className="text-sm font-black text-white/90">SEMICONDUCTOR & AIoT</p>
             </div>
           </div>
           
           <div className="flex items-center gap-5 group">
             <div className="p-3 bg-white/5 rounded-xl group-hover:bg-[#d4af37]/20 transition-colors">
-                <Terminal className="text-[#d4af37]" size={28} />
+              <Terminal className="text-[#d4af37]" size={28} />
             </div>
             <div>
               <h4 className="text-[10px] font-mono uppercase text-gray-500 tracking-[0.2em] mb-1">Stack Log</h4>
@@ -81,7 +98,7 @@ export default function Home() {
 
           <div className="flex items-center gap-5 group">
             <div className="p-3 bg-white/5 rounded-xl group-hover:bg-[#d4af37]/20 transition-colors">
-                <Code className="text-[#d4af37]" size={28} />
+              <Code className="text-[#d4af37]" size={28} />
             </div>
             <div>
               <h4 className="text-[10px] font-mono uppercase text-gray-500 tracking-[0.2em] mb-1">Operation</h4>
@@ -93,7 +110,7 @@ export default function Home() {
       
       {/* Decorative Corner Element */}
       <div className="absolute bottom-10 left-10 text-[8px] font-mono text-gray-800 uppercase tracking-[1em] pointer-events-none hidden md:block">
-        Joshua Cordova // Systems Engineering // CHMSU
+        Joshua Cordova 柯亞哲 // Equipment & Computer Engineering // Kaohsiung, Taiwan
       </div>
     </div>
   );
