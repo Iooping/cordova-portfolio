@@ -76,7 +76,7 @@ export default function Projects() {
      github: "https://github.com/IreplyCHMSU-Alijis-2026/CMS",
       showSource: true
     },
-    {
+   /* {
       id: "SYS-04",
       title: "Placeholder Project",
       category: "Placeholder Project",
@@ -109,7 +109,7 @@ export default function Projects() {
       link: "#"
     },
   ];
-
+*/
   // Grid Animations
   const containerVariants = {
     hidden: { opacity: 0 },
