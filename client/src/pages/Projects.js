@@ -108,8 +108,9 @@ export default function Projects() {
       tech: ["Placeholder Project"],
       link: "#"
     },
+    */
   ];
-*/
+
   // Grid Animations
   const containerVariants = {
     hidden: { opacity: 0 },
