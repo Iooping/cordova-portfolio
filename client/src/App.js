@@ -9,6 +9,7 @@ import About from './pages/About';
 import Projects from './pages/Projects';
 import Experience from './pages/Experience';
 import Contact from './pages/Contact';
+import Gallery from './pages/Gallery';
 
 function App() {
   const [isOpen, setIsOpen] = useState(false);
@@ -18,6 +19,7 @@ function App() {
     { name: 'About', path: '/about' },
     { name: 'Projects', path: '/projects' },
     { name: 'Experience', path: '/experience' },
+    { name: 'Gallery', path: '/gallery' },
     { name: 'Contact', path: '/contact' },
   ];
 
@@ -85,6 +87,7 @@ function App() {
             <Route path="/projects" element={<Projects />} />
             <Route path="/experience" element={<Experience />} />
             <Route path="/contact" element={<Contact />} />
+            <Route path="/gallery" element={<Gallery />} />
           </Routes>
         </main>
 
